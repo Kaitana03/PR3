@@ -1,0 +1,59 @@
+﻿<Window x:Class="PR3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PR3"
+        mc:Ignorable="d"
+        Title="Holli" Height="450" Width="800" ResizeMode="NoResize">
+    <Grid Background="#FFA584C3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="245*"/>
+            <RowDefinition Height="47*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Grid.RowSpan="2" Margin="3">
+            <Menu>
+                <MenuItem Header="Основные команды">
+                    <MenuItem Header="ВВЕСТИ" Click="bt_input_Click"/>
+                    <MenuItem Header="РАСЧЕТ" Click="bt_calc_Click" />
+                    <Separator></Separator>
+                    <MenuItem Header="ИНФО" Click="Button_Click"/>
+                    <MenuItem Header="ВЫХОД" Click="bt_esc_Click"/>
+                </MenuItem>
+            </Menu>
+            <Label Content="Поле для ввода кол-ва строк " Margin="3"/>
+            <TextBox Margin="3" x:Name="tb_in_n"/>
+            <Label Content="Поле для ввода кол-ва столбцов"/>
+            <TextBox Margin="3" x:Name="tb_in_m"/>
+            <Button Content="Ввести числа" Margin="3" x:Name="bt_input" Click="bt_input_Click" />
+            <Button  x:Name="bt_calc" Content="Посчитать и вывести результат" Margin="3" Click="bt_calc_Click" />
+            <TextBox Text="Максимальные элементы столбцов " IsReadOnly="True" x:Name="tb_rez_1"  Margin="3"/>
+            <Button Content="Очистить" Margin="3" x:Name="bt_cl"  Click="bt_cl_Click"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="3">
+            <Button Margin="3" Content="Инфо" Click="Button_Click" />
+            <Button Margin="3" Content="Выход" x:Name="bt_esc" Click="bt_esc_Click" />
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.RowSpan="2" Margin="3">
+            <Menu>
+                <MenuItem Header="Команды для матрицы">
+                    <MenuItem Header="СОХРАНИТЬ" Click="bt_save_Click" />
+                    <MenuItem Header="ОТКРЫТЬ" Click="bt_open_Click" />
+                    <MenuItem Header="ОЧИСТИТЬ"  Click="bt_clear_Click" />
+                </MenuItem>
+            </Menu>
+            <DataGrid Height="100" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="3" x:Name="dtgrid" 
+            CanUserAddRows="False" />
+            <Button Margin="3" Content="Сохранить" x:Name="bt_save" Click="bt_save_Click" />
+            <Button Margin="3" Content="Открыть" x:Name="bt_open" Click="bt_open_Click" />
+            <Button Margin="3" Content="Очистить" x:Name="bt_clear" Click="bt_clear_Click" />
+            
+        </StackPanel>
+
+    </Grid>
+</Window>
